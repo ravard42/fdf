@@ -6,11 +6,38 @@
 /*   By: ravard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/14 03:27:56 by ravard            #+#    #+#             */
-/*   Updated: 2016/05/14 15:59:13 by ravard           ###   ########.fr       */
+/*   Updated: 2016/05/14 16:10:54 by ravard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void			print_tab(int **tab, int *file_size)
+{
+	int	i;
+	int	j;
+
+	ft_putchar('\n');
+	i = 0;
+	while (i < file_size[0])
+	{
+		j = 0;
+		while (j < file_size[1])
+		{
+			ft_putnbr(tab[i][j]);
+			j++;
+			if (j < file_size[1])
+				ft_putchar(' ');
+		}
+		i++;
+		ft_putchar('\n');
+	}
+	ft_putstr("Notre fichier contient ");
+	ft_putnbr(i);
+	ft_putstr(" lignes et ");
+	ft_putnbr(j);
+	ft_putstr(" colonnes\n");
+}
 
 int		init_env(t_env *e, int *file_size, int **tab)
 {
