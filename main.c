@@ -6,15 +6,16 @@
 /*   By: ravard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/14 03:42:28 by ravard            #+#    #+#             */
-/*   Updated: 2016/05/14 03:54:12 by ravard           ###   ########.fr       */
+/*   Updated: 2016/05/14 15:57:42 by ravard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include "stdio.h"
 
 static int		expose_hook(t_env *param)
 {
-	print_env(*param);
+	print_env(param);
 	draw(*param);
 	return (0);
 }

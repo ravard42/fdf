@@ -6,7 +6,7 @@
 /*   By: ravard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/14 03:38:01 by ravard            #+#    #+#             */
-/*   Updated: 2016/05/14 03:40:23 by ravard           ###   ########.fr       */
+/*   Updated: 2016/05/14 15:58:29 by ravard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,11 @@ void					print_tab(int **tab, int *file_size);
 
 int						init_env(t_env *e, int	*file_size, int **tab);
 void					m_a_j_env(t_env *e, int x, int y, int keycode);
-void					print_env(t_env e);
+void					print_env(t_env *e);
 
 void					draw(t_env e);
+
+void					trigo_rot(t_env *e);
+void					horaire_rot(t_env *e);
 
 #endif

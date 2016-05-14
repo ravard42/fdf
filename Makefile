@@ -6,6 +6,7 @@ SRC =	gnl_src/get_next_line.c\
 	parsing.c\
 	env_funct.c\
 	draw_line.c\
+	rot_funct.c\
 
 OBJ = $(SRC:.c=.o)
 INCLUDE = includes/
