@@ -6,13 +6,13 @@
 /*   By: ravard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/14 03:27:56 by ravard            #+#    #+#             */
-/*   Updated: 2016/05/14 16:10:54 by ravard           ###   ########.fr       */
+/*   Updated: 2016/05/14 16:14:10 by ravard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void			print_tab(int **tab, int *file_size)
+void	print_tab(int **tab, int *file_size)
 {
 	int	i;
 	int	j;
