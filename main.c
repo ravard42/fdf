@@ -6,12 +6,24 @@
 /*   By: ravard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/14 03:42:28 by ravard            #+#    #+#             */
-/*   Updated: 2016/05/14 15:57:42 by ravard           ###   ########.fr       */
+/*   Updated: 2016/05/16 01:19:51 by ravard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "stdio.h"
+
+static int		is_fdf_file(char *s)
+{
+	char	*rev;
+
+	rev = ft_revstr(s);
+	rev[4] = '\0';
+	if (!ft_strcmp("fdf.", rev))
+		return (1);
+	else
+		return (0);
+}
 
 static int		expose_hook(t_env *param)
 {
@@ -46,7 +58,7 @@ int				main(int argc, char **argv)
 	int		**tab;
 	t_env	e;
 
-	if (argc == 2)
+	if (argc == 2 && is_fdf_file(argv[1]))
 	{
 		if ((fd = open(argv[1], O_RDONLY)) != -1)
 		{
