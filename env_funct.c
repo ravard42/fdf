@@ -6,13 +6,13 @@
 /*   By: ravard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/14 03:27:56 by ravard            #+#    #+#             */
-/*   Updated: 2016/05/16 02:51:25 by ravard           ###   ########.fr       */
+/*   Updated: 2016/05/16 09:26:59 by ravard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	print_tab(int **tab, int *file_size)
+void			print_tab(int **tab, int *file_size)
 {
 	int	i;
 	int	j;
@@ -32,14 +32,14 @@ void	print_tab(int **tab, int *file_size)
 		i++;
 		ft_putchar('\n');
 	}
-	ft_putstr("Notre fichier contient ");
+	ft_putstr("\nNotre fichier contient ");
 	ft_putnbr(i);
 	ft_putstr(" lignes et ");
 	ft_putnbr(j);
 	ft_putstr(" colonnes\n");
 }
 
-int		init_env(t_env *e, int *file_size, int **tab)
+int				init_env(t_env *e, int *file_size, int **tab)
 {
 	e->x_origin = LENGHT / 2;
 	e->y_origin = WIDTH / 2;
@@ -54,7 +54,7 @@ int		init_env(t_env *e, int *file_size, int **tab)
 	return (0);
 }
 
-void	m_a_j_env(t_env *e, int x, int y, int keycode)
+void			m_a_j_env(t_env *e, int x, int y, int keycode)
 {
 	e->x_origin = x;
 	e->y_origin = y;
@@ -82,13 +82,50 @@ void	m_a_j_env(t_env *e, int x, int y, int keycode)
 		exit(0);
 }
 
-void	print_env(t_env *e)
+static void		print_color_info(t_env *e, char decalage, char *color)
 {
+	if (*((unsigned char *)&e->color + decalage) == 0xFF)
+	{
+		ft_putstr(color);
+		ft_putstr(" = 4/4\n");
+	}
+	else if (*((unsigned char *)&e->color + decalage) == 0xFF - 0x3F)
+	{
+		ft_putstr(color);
+		ft_putstr(" = 3/4\n");
+	}
+	else if (*((unsigned char *)&e->color + decalage) == 0xFF - 0x3F * 2)
+	{
+		ft_putstr(color);
+		ft_putstr(" = 2/4\n");
+	}
+	else if (*((unsigned char *)&e->color + decalage) == 0xFF - 0x3F * 3)
+	{
+		ft_putstr(color);
+		ft_putstr(" = 1/4\n");
+	}
+	else if (*((unsigned char *)&e->color + decalage) == 0xFF - 0x3F * 4)
+	{
+		ft_putstr(color);
+		ft_putstr(" = 0/4\n");
+	}
+}
+
+void			print_env(t_env *e)
+{
+	ft_putstr("\n\n\n\n\n\n\n==================================ENV\
+==================================\n\n");
 	ft_putstr("x_origin = ");
 	ft_putnbr(e->x_origin);
 	ft_putstr("\ny_origin = ");
 	ft_putnbr(e->y_origin);
-	ft_putstr("\nunity : ");
+	ft_putstr("\nunity = ");
 	ft_putnbr(e->unity);
+	ft_putchar('\n');
+	print_color_info(e, 2, "red");
+	print_color_info(e, 1, "green");
+	print_color_info(e, 0, "blue");
 	print_tab(e->tab, e->file_size);
+	ft_putstr("\n\n=====================================\
+==================================\n\n\n\n\n\n");
 }
