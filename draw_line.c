@@ -6,7 +6,7 @@
 /*   By: ravard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/14 03:56:08 by ravard            #+#    #+#             */
-/*   Updated: 2016/05/14 04:08:13 by ravard           ###   ########.fr       */
+/*   Updated: 2016/05/16 01:32:01 by ravard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ static void			draw_line(t_env *e, float *first, float *second)
 		while (min[0]++ < first[0] || min[0] < second[0])
 			mlx_pixel_put(e->ptr, e->win, min[0],
 					(second[1] - first[1]) / (second[0] - first[0])
-					* (min[0] - first[0]) + first[1], 0xFFFFFF);
+					* (min[0] - first[0]) + first[1], e->color);
 	else if (abscisse == 'y')
 		while (min[1]++ < first[1] || min[1] < second[1])
 			mlx_pixel_put(e->ptr, e->win,
 					(second[0] - first[0]) / (second[1] - first[1]) *
-					(min[1] - first[1]) + first[0], min[1], 0xFF00FF);
+					(min[1] - first[1]) + first[0], min[1], e->color);
 }
 
 static void			horizontal_draw(t_env e, int i)

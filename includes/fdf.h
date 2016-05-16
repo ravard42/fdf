@@ -6,7 +6,7 @@
 /*   By: ravard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/14 03:38:01 by ravard            #+#    #+#             */
-/*   Updated: 2016/05/14 15:58:29 by ravard           ###   ########.fr       */
+/*   Updated: 2016/05/16 01:29:25 by ravard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct			s_env
 	int			x_origin;
 	int			y_origin;
 	int			unity;
+	int			color;
 	int			*file_size;
 	int			**tab;
 }						t_env;

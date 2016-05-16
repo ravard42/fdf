@@ -6,7 +6,7 @@
 /*   By: ravard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/14 03:42:28 by ravard            #+#    #+#             */
-/*   Updated: 2016/05/16 01:19:51 by ravard           ###   ########.fr       */
+/*   Updated: 2016/05/16 02:47:40 by ravard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int		mouse_hook(int button, int j, int i, t_env *param)
 {
 	if (button)
 		;
-	m_a_j_env(param, j, i, param->unity);
+	m_a_j_env(param, j, i, 0);
 	mlx_clear_window(param->ptr, param->win);
 	expose_hook(param);
 	return (0);
