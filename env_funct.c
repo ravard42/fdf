@@ -6,7 +6,7 @@
 /*   By: ravard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/14 03:27:56 by ravard            #+#    #+#             */
-/*   Updated: 2016/05/16 02:47:35 by ravard           ###   ########.fr       */
+/*   Updated: 2016/05/16 02:51:25 by ravard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ void	m_a_j_env(t_env *e, int x, int y, int keycode)
 	else if (keycode == 125)
 		e->unity = e->unity - 1;
 	else if (keycode == 15 && *((unsigned char *)&e->color + 2) != 0xFF)
-		e->color += 0x3F0000;		
+		e->color += 0x3F0000;
 	else if (keycode == 14 && *((unsigned char *)&e->color + 2) != 0x03)
-		e->color -= 0x3F0000;		
+		e->color -= 0x3F0000;
 	else if (keycode == 5 && *((unsigned char *)&e->color + 1) != 0xFF)
 		e->color += 0x003F00;
 	else if (keycode == 3 && *((unsigned char *)&e->color + 1) != 0x03)
